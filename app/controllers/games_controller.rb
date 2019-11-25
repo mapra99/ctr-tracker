@@ -32,4 +32,10 @@ class GamesController < ApplicationController
     @game.update(finished: true)
     redirect_to @game
   end
+
+  def index
+    @players = Player.all
+    @games_in_progress = Game.in_progress
+    @games_history = Game.history
+  end
 end

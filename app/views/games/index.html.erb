@@ -1,0 +1,39 @@
+<h1>Todas las Partidas</h1>
+
+<% if @games_history %>
+  <h2>Puntaje de Juegos terminados</h2>
+  <table>
+    <tr>
+      <th>Pista</th>
+      <th>Jugado el</th>
+      <th>Mejor Jugador</th>
+      <th>Posici&oacute;n</th>
+      <th>Puntaje</th>
+    </tr>
+    <% @games_history.each do |game|%>
+      <tr>
+        <td><%= link_to game.circuit.name, game %></td>
+        <td><%= game.created_at %></td>
+        <td><%= game.winner.player.name %></td>
+        <td><%= game.winner.position %></td>
+        <td><%= game.winner.score %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+
+<% if @games_in_progress %>
+  <h2>Juegos en progreso/sin resultados</h2>
+  <table>
+    <tr>
+      <th>Pista</th>
+      <th>Jugado el</th>
+    </tr>
+    <% @games_in_progress.each do |game|%>
+      <tr>
+        <td><%= link_to game.circuit.name, game %></td>
+        <td><%= game.created_at %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

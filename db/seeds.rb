@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Players
-Player.create(name: 'Tato')
 Player.create(name: 'Toto')
+Player.create(name: 'Tato')
 
 # Circuits
 Circuit.create(name: 'Crash Cove')
