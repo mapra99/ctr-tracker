@@ -10,6 +10,15 @@
   </head>
 
   <body>
+    <header>
+      <nav>
+        <ul>
+          <li><%= link_to 'Inicio', root_path %></li>
+          <li><%= link_to 'Partidas', games_path %></li>
+          <li><%= link_to 'Nueva Partida', new_game_path %></li>
+        </ul>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
