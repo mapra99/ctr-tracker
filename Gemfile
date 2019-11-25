@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :production do
-  gem 'mysql2'
+  gem 'pg'
 end
 
 group :development, :test do
