@@ -1,7 +1,7 @@
 <h1>Qui&eacute;n es el rey del juego??</h1>
 <% if @world_king %>
   <h2>El rey del juego es <%=@world_king.player.name%> :D</h2>
-  <h3>Puntaje: <%= @world_king.score %></h3>
+  <h3>Puntaje: <%= @world_king.total_score %></h3>
 <% else %>
   <h2>No hay rey del juego a&uacute;n!!</h2>
 <% end %>
@@ -16,7 +16,7 @@
   <% @total_scores.each do |t| %>
     <tr>
       <td><%= t.player.name %></td>
-      <td><%= t.score %></td>
+      <td><%= t.total_score %></td>
     </tr>
   <% end %>
 </table>

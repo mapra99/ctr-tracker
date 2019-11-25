@@ -7,12 +7,12 @@ class GamePlayer < ApplicationRecord
 
   before_save :calc_score
 
-  scope :total_scores, -> { select(:player_id, 'sum(score) as score').group('player_id').order(score: :desc) }
+  scope :total_scores, -> { select(:player_id, 'sum(score) as total_score').group('player_id').order(total_score: :desc) }
 
   def self.world_king
-    max_score = total_scores.first.score
+    max_score = total_scores.first.total_score
     best_players = total_scores.count do |t|
-      t.score == max_score
+      t.total_score == max_score
     end
     best_players == 1 ? total_scores.first : nil
   end
