@@ -1,0 +1,14 @@
+<%= form_for :game, url: games_path do |f| %>
+  <%= f.label :circuit_id, 'Pista: ' %>
+  <%= f.select :circuit_id, @circuits.collect{|x| [x.name, x.id]}%>
+
+  <fieldset>
+    <legend>Jugadores</legend>
+    <% @players.each do |p| %>
+        <%= f.check_box(:players, { multiple: true}, p.id, nil)%>
+        <%= p.name %><br>
+    <% end %>
+  </fieldset>
+  
+  <%= f.submit "Crear nuevo Juego" %>
+<% end %>

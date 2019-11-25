@@ -1,0 +1,37 @@
+<h1><%= @game.circuit.name %></h1>
+<span><%= @game.created_at.to_date %></span>
+
+<h2>Resultados:</h2>
+<% if @game.finished %>
+  <table>
+    <tr>
+      <th>Nombre</th>
+      <th>Posici&oacute;n</th>
+      <th>Puntaje</th>
+    </tr>
+    <% @game_players.each do |game_player| %>
+      <tr>
+        <td><%= game_player.player.name %></td>
+        <td><%= game_player.position %></td>
+        <td><%= game_player.score %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <%= form_for :game_results, url: game_path(@game), method: :patch do |f|%>
+    <table>
+      <tr>
+        <th>Nombre</th>
+        <th>Posici&oacute;n</th>
+      </tr>
+
+      <% @game_players.each do |game_player| %>
+        <tr>
+          <td><%= game_player.player.name %></td>
+          <td><%= f.number_field :positions, multiple: true, in: (1..8) %></td>
+        </tr>
+      <% end %>
+    </table>
+    <%= f.submit "Guardar Posiciones"%>
+  <% end %>
+<% end %>

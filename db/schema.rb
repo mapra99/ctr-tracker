@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_24_025749) do
+ActiveRecord::Schema.define(version: 2019_11_25_062541) do
 
   create_table "circuits", force: :cascade do |t|
     t.string "name"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 2019_11_24_025749) do
     t.integer "player_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "position"
+    t.integer "score"
   end
 
   create_table "games", force: :cascade do |t|
@@ -32,6 +34,7 @@ ActiveRecord::Schema.define(version: 2019_11_24_025749) do
     t.boolean "mirror"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "finished", default: false
   end
 
   create_table "players", force: :cascade do |t|
@@ -40,16 +43,7 @@ ActiveRecord::Schema.define(version: 2019_11_24_025749) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "scores", force: :cascade do |t|
-    t.integer "position"
-    t.integer "score"
-    t.integer "game_player_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   add_foreign_key "game_players", "games"
   add_foreign_key "game_players", "players"
   add_foreign_key "games", "circuits"
-  add_foreign_key "scores", "game_players"
 end
