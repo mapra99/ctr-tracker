@@ -10,7 +10,7 @@ class Game < ApplicationRecord
                                       message: 'Value must be easy, medium or hard' }
   validates :mirror, inclusion: { in: [true, false] }
 
-  default_scope -> { order(created_at: :desc) }
+  # default_scope -> { order(created_at: :desc) }
   scope :in_progress, -> { where(finished: false) }
   scope :history, -> { where(finished: true) }
 
