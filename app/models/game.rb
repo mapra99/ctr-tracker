@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Game < ApplicationRecord
   before_validation :default_options
 
@@ -22,7 +24,7 @@ class Game < ApplicationRecord
 
   def default_options
     self.laps ||= 7
-    self.difficulty ||= "hard"
+    self.difficulty ||= 'hard'
     self.mirror ||= false
   end
 end

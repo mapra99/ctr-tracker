@@ -27,7 +27,7 @@ class GamesController < ApplicationController
     i = 0
     @game.game_players.each do |game_player|
       game_player.update(position: params[:game_results][:positions][i])
-      i+=1
+      i += 1
     end
     @game.update(finished: true)
     redirect_to @game

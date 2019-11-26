@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PlayersController < ApplicationController
   def index
     @total_scores = GamePlayer.total_scores

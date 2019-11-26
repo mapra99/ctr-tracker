@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Circuit < ApplicationRecord
   has_many :games
   has_many :game_players, through: :games, source: :game_players
